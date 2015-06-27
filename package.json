@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test/**/*.js",
-    "postinstall": "register",
-    "preuninstall": "unregister"
+    "postinstall": "node register",
+    "preuninstall": "node unregister"
   },
   "files": [
     "index.js"
