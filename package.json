@@ -8,6 +8,9 @@
     "postinstall": "register",
     "preuninstall": "unregister"
   },
+  "files": [
+    "index.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fosojs/fosify-html.git"
@@ -27,7 +30,7 @@
   "homepage": "https://github.com/fosojs/fosify-html#readme",
   "dependencies": {
     "async": "^1.2.1",
-    "fosify": "^0.4.4",
+    "fosify": "^0.4.5",
     "fs-extra": "^0.20.0",
     "gaze": "^0.5.1",
     "glob": "^5.0.10",
