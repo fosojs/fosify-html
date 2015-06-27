@@ -1,31 +1,44 @@
 {
   "name": "fosify-html",
-  "version": "0.1.0",
-  "description": "A plugin for Fosify to bundle HTML files.",
+  "version": "0.1.1",
+  "description": "A HTML bundling plugin for foso.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*.js",
+    "postinstall": "register",
+    "preuninstall": "unregister"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zkochan/fosify-html.git"
+    "url": "git+https://github.com/fosojs/fosify-html.git"
   },
   "keywords": [
     "fosify"
   ],
-  "author": "Zoltan Kochan",
+  "author": {
+    "name": "Zoltan Kochan",
+    "email": "zoltan.kochan@gmail.com",
+    "url": "http://kochan.io"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zkochan/fosify-html/issues"
+    "url": "https://github.com/fosojs/fosify-html/issues"
   },
-  "homepage": "https://github.com/zkochan/fosify-html#readme",
+  "homepage": "https://github.com/fosojs/fosify-html#readme",
   "dependencies": {
     "async": "^1.2.1",
-    "fosify-util": "0.0.3",
+    "fosify": "^0.4.4",
     "fs-extra": "^0.20.0",
     "gaze": "^0.5.1",
     "glob": "^5.0.10",
     "html-minifier": "^0.7.2"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "mocha": "^2.2.5"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"

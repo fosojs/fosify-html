@@ -5,7 +5,8 @@ var path = require('path');
 var fs = require('fs-extra');
 var async = require('async');
 var gaze = require('gaze');
-var futil = require('fosify-util');
+var futil = require('fosify');
+var pkg = require('./package.json');
 var minify = require('html-minifier').minify;
 
 function rebundle(opts, cb) {
@@ -54,6 +55,8 @@ function rebundle(opts, cb) {
 }
 
 function bundle(opts, cb) {
+  futil.notifyUpdate(pkg);
+
   rebundle(opts, function() {
     if (opts.watch) {
       gaze(opts.src + '/**/*.html', function(err, watcher) {
