@@ -8,9 +8,6 @@
     "postinstall": "node ./bin/register",
     "preuninstall": "node ./bin/unregister"
   },
-  "files": [
-    "index.js"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fosojs/fosify-html.git"
