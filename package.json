@@ -1,6 +1,6 @@
 {
   "name": "fosify-html",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "description": "A HTML bundling plugin for foso.",
   "main": "index.js",
   "scripts": {
