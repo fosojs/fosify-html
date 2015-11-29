@@ -1,16 +1,15 @@
 'use strict';
 
-var foso = require('foso');
+var Foso = require('foso');
 var html = require('../');
 
+var foso = new Foso();
 foso
-  .please({
+  .register(html, {
     src: './src',
-    dest: './build',
+    dest: './dist',
     watch: true,
     minify: true
   })
-  .fosify(html)
-  .now(function() {
-    console.log('bundled');
-  });
+  .then(() => foso.bundle())
+  .then(() => console.log('bundled'));

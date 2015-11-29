@@ -13,7 +13,7 @@ function rebundle(opts, cb) {
   cb = cb || futil.noop;
 
   var src = opts.src;
-  var dest = opts.dest || './build';
+  var dest = opts.dest || './dist';
   var createPath = futil.bundleNamer({
     src: src,
     extension: 'html'
@@ -54,21 +54,27 @@ function rebundle(opts, cb) {
   });
 }
 
-function bundle(opts, cb) {
+module.exports = function(plugin, opts, next) {
   futil.notifyUpdate(pkg);
 
-  rebundle(opts, function() {
-    if (opts.watch) {
+  plugin.expose('bundle', function(cb) {
+    cb = cb || function() {};
+    rebundle(opts, function() {
+      if (!opts.watch) {
+        return;
+      }
       gaze(opts.src + '/**/*.html', function(err, watcher) {
-        watcher.on('all', function() {
-          rebundle(opts);
-        });
+        watcher.on('all', () => rebundle(opts));
       });
-    }
-
-    cb();
+    });
   });
-}
 
-module.exports = bundle;
-module.exports.extensions = ['html'];
+  plugin.root.extensions.push('html');
+
+  next();
+};
+
+module.exports.attributes = {
+  pkg: require('./package.json'),
+  compatibility: '1.x'
+};
